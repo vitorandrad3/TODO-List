@@ -1,3 +1,4 @@
+///estados do BLoC
 abstract class BlocState {
   BlocState({required this.themeMode});
 

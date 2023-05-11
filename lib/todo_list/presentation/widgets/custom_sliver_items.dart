@@ -18,8 +18,13 @@ class CustomSliverItems extends StatefulWidget {
 }
 
 class _CustomSliverItemsState extends State<CustomSliverItems> {
+  ///recuperação da instância do ViewController (feita no get.put()) por meio
+  ///de Get.find().
   ViewController viewController = Get.find();
 
+  ///uso do método initState() para recuperar da memória do disposivo qual modo
+  ///o usuário escolheu por último antes de fechar o app por meio do método
+  /// loadGridMode do viewController.
   @override
   void initState() {
     super.initState();
@@ -28,8 +33,14 @@ class _CustomSliverItemsState extends State<CustomSliverItems> {
 
   @override
   Widget build(BuildContext context) {
+    ///Recuperação do TodoController via provider.
     final dataController = Provider.of<TodoController>(context);
+
+    ///Uso do Obx do package 'GetX' para gerar a reatividade  quando as
+    ///variáveis obseváveis forem modificas.
     return Obx(
+      ///verificação da variáel gridMode, recuperada do viewController para
+      /// decidir qual modo de exibição dos cards irá aparecer para o usário.
       () => viewController.gridMode.value
           ? CustomSliverGrid(controller: dataController)
           : CustomSliverList(controller: dataController),

@@ -3,16 +3,24 @@
 import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
+import '../../design_system/constants/constants_strings.dart';
 import '../domain/todo_repository.dart';
-import '../presentation/constants_strings.dart';
 
+///implementação do repositório da aplicação.
 class TodoRepositoryImpl implements TodoRepository {
   @override
+
+  ///utilização da classe Either do package dartz para o tratamento de
+  ///possiveis erros das requições ao banco de dados.
+
+  ///método getAllTasks para a incialização do banco de dados.
   Future<Either<String, List<Map<String, dynamic>>>> getAllTasks() async {
     try {
       final response = await http.get(
         Uri.parse('${ConstantsStrings.baseDBURL}/tasks.json'),
       );
+
+      ///verificação se a conexão com o banco de dados  foi bem sucedida
       if (response.statusCode == 200) {
         final List listData = [];
         final Map<String, dynamic> jsonResponse = json.decode(response.body);
@@ -20,6 +28,8 @@ class TodoRepositoryImpl implements TodoRepository {
           data['id'] = id;
           listData.add(data);
         });
+
+        ///à direita, a reposta é a lista com os dados para a utilização no app
         return right(
           listData
               .map<Map<String, dynamic>>(
@@ -28,9 +38,12 @@ class TodoRepositoryImpl implements TodoRepository {
               .toList(),
         );
       } else {
+        ///à esquerda é uma mensagem de erro para exibir no log.
         return left('falha ao tentar recuperar os dados');
       }
     } catch (error) {
+      ///caso a conexão com a API falhe, enviará a mensagem de erro ao lado
+      ///esquerdo
       return left(error.toString());
     }
   }

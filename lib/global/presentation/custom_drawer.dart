@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../design_system/box_spacing/box_spacer.dart';
 import '../../settings/presentation/settings_page.dart';
 
+///drawer modularizado
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
@@ -32,7 +33,10 @@ class CustomDrawer extends StatelessWidget {
                 fit: BoxFit.cover,
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+                errorWidget: (context, url, error) => Icon(
+                  Icons.error,
+                  color: Theme.of(context).colorScheme.error,
+                ),
               ),
             ),
             const DSBoxSpacing.xLarge(),

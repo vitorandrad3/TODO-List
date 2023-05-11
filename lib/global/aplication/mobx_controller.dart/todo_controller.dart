@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:mobx/mobx.dart';
 import '../../domain/task.dart';
 import '../../domain/todo_repository.dart';
-import '../../presentation/constants_strings.dart';
+import '../../../design_system/constants/constants_strings.dart';
 import '../../presentation/debouncer.dart';
 
 part 'todo_controller.g.dart';

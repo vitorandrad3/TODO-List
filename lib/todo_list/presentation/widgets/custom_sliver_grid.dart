@@ -4,13 +4,18 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../design_system/box_spacing/box_spacer.dart';
 import '../../../global/aplication/mobx_controller.dart/todo_controller.dart';
 
+///widget para exibir as tarefas no modo "grade", usando o
+///SliverChildBuilderDelegate, recebendo as informações do TodoController.
 class CustomSliverGrid extends StatelessWidget {
   const CustomSliverGrid({required this.controller, super.key});
 
+  ///recepção do controller via parâmetro a a fim de modularizar o código.
   final TodoController controller;
 
   @override
   Widget build(BuildContext context) {
+    ///uso o Obeserver do package 'MobX' para gerar a reatividade quando as
+    ///variáveis observáveis forem modificadas.
     return Observer(
       builder: (_) {
         return SliverGrid(
@@ -44,7 +49,10 @@ class CustomSliverGrid extends StatelessWidget {
                                   onPressed: () {
                                     controller.removeTask(index);
                                   },
-                                  icon: const Icon(Icons.delete),
+                                  icon: Icon(
+                                    Icons.delete,
+                                    color: Theme.of(context).colorScheme.error,
+                                  ),
                                 ),
                               ],
                             )

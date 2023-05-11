@@ -1,3 +1,4 @@
+///entidade da tarefa
 class TaskModel {
   TaskModel({
     required this.description,
@@ -6,7 +7,7 @@ class TaskModel {
     required this.id,
   });
 
-  // Método fromJson para desserialização de JSON provido pelo banco de dados
+  // Método fromJson para desserialização de JSON provido pelo banco de dados.
   factory TaskModel.fromJson(Map<String, dynamic> json) {
     return TaskModel(
       title: json['title'],

@@ -13,6 +13,9 @@ class HomePage extends StatelessWidget {
     return const Scaffold(
       drawer: CustomDrawer(),
       floatingActionButton: CustomFloatingActionButton(),
+
+      ///uso do CustomScrollView para facilitar a adição de espaços scroláveis
+
       body: CustomScrollView(
         slivers: [
           CustomSliverAppBar(),

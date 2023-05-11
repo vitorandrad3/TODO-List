@@ -18,15 +18,19 @@ class TodoList extends StatefulWidget {
 late final SettingsBloc bloc;
 
 class _TodoListState extends State<TodoList> {
+  /// uso do método initState() para inicialização do SettingsBloc
   @override
   void initState() {
     super.initState();
     bloc = SettingsBloc();
+
+    ///adição dos evento no bloc
     bloc.add(SwitchEvent());
   }
 
-  ///TODO ver porque o didChangeDependencies funciona nesse caso para
-  ///inicializar o banco de dados.
+  ///método didChangeDependencies() utilizado para recuperar a instância do
+  ///TodoController e inicializar o banco de dados com o método initDB() quando
+  /// o app é iniciado.
   @override
   void didChangeDependencies() {
     Provider.of<TodoController>(context).initDB();
@@ -43,6 +47,8 @@ class _TodoListState extends State<TodoList> {
 
   @override
   Widget build(BuildContext context) {
+    ///inserção do BlocProvider para que seja possivel a recuperação da
+    ///instância do Bloc nas difetentes partes do aplicativo.
     return BlocProvider(
       create: (context) => SettingsBloc(),
       child: BlocBuilder<SettingsBloc, BlocState>(

@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../design_system/constants/spacing.dart';
 
+///widget modularizado com o switch para a página de configurações.
 class CustomAppSettingsPreferenceWidget extends StatefulWidget {
   const CustomAppSettingsPreferenceWidget({
     required this.title,

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+///ThemeData isolado a fim de deixar o código mais limpo, algo  parecido com o
+///CSS na programação web, onde as caracteristicas visuais são isoladas da
+///da estrutura e da lógica da aplicação.
 mixin CustomThemeMode {
   static ThemeData get darkTheme {
     return ThemeData.dark().copyWith(
