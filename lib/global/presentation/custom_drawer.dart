@@ -65,7 +65,7 @@ class CustomDrawer extends StatelessWidget {
                   onPressed: () {
                     openURL(
                       Uri.parse(
-                        'https://github.com/vitorandrad3/cs50-final-project',
+                        'https://github.com/vitorandrad3/TODO-List',
                       ),
                     );
                   },
