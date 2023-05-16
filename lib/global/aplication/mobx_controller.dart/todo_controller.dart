@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'dart:developer' as dev;
 import 'package:http/http.dart' as http;
 import 'package:mobx/mobx.dart';
+import '../../../design_system/constants/constants_strings.dart';
 import '../../domain/task.dart';
 import '../../domain/todo_repository.dart';
-import '../../../design_system/constants/constants_strings.dart';
 import '../../presentation/debouncer.dart';
 
 part 'todo_controller.g.dart';
@@ -41,6 +41,14 @@ abstract class _TodoControllerBase with Store {
       // ignore: avoid_dynamic_calls
       final String id = jsonDecode(result.body)['name'];
       allTasks.add(
+        TaskModel(
+          description: description,
+          title: title,
+          isChecked: false,
+          id: id,
+        ),
+      );
+      controlList.add(
         TaskModel(
           description: description,
           title: title,

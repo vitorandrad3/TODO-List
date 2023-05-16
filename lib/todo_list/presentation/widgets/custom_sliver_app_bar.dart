@@ -10,6 +10,7 @@ class CustomSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SliverAppBar(
+      pinned: true,
       centerTitle: true,
       title: Text(ConstantsStrings.todoListTitle),
     );

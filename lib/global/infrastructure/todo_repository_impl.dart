@@ -14,8 +14,10 @@ class TodoRepositoryImpl implements TodoRepository {
   ///possiveis erros das requições ao banco de dados.
 
   ///método getAllTasks para a incialização do banco de dados.
+  ///TODO dartz
   Future<Either<String, List<Map<String, dynamic>>>> getAllTasks() async {
     try {
+      ///TODO requisição http/conexão com API
       final response = await http.get(
         Uri.parse('${ConstantsStrings.baseDBURL}/tasks.json'),
       );
@@ -23,6 +25,8 @@ class TodoRepositoryImpl implements TodoRepository {
       ///verificação se a conexão com o banco de dados  foi bem sucedida
       if (response.statusCode == 200) {
         final List listData = [];
+
+        ///TODO json
         final Map<String, dynamic> jsonResponse = json.decode(response.body);
         jsonResponse.forEach((id, data) {
           data['id'] = id;

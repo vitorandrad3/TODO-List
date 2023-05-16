@@ -21,6 +21,10 @@ class DSBoxSpacing extends SizedBox {
 
   const DSBoxSpacing.xLarge({super.key})
       : super.square(dimension: DSSpacing.xLarge);
+
+  const DSBoxSpacing.xxLarge({super.key})
+      : super.square(dimension: DSSpacing.xxLarge);
+
   DSBoxSpacing.custom({required DSBoxSpacingSize size, super.key})
       : super.square(dimension: size.kSize);
 }

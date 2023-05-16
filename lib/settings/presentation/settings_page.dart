@@ -42,6 +42,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   ///método para buscar da memória as preferências do usuário, se o usuário
   ///nunca alterou as preferências, o valor padrão dos switch é falso.
+  ///TODO shared_preferences
   Future<void> _initPreferences() async {
     _prefs = await SharedPreferences.getInstance();
     setState(() {

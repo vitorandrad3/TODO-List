@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../global/presentation/custom_drawer.dart';
+import '../../global/presentation/widgets/custom_drawer.dart';
 import 'widgets/custom_floating_action_button.dart';
 import 'widgets/custom_sliver_app_bar.dart';
 import 'widgets/custom_sliver_items.dart';
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       floatingActionButton: CustomFloatingActionButton(),
 
       ///uso do CustomScrollView para facilitar a adição de espaços scroláveis
-
+      ///TODO Slivers
       body: CustomScrollView(
         slivers: [
           CustomSliverAppBar(),
@@ -26,3 +26,5 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+void funjdbasj() {}

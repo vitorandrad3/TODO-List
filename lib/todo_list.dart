@@ -6,6 +6,7 @@ import 'global/aplication/bloc_controller/events.dart';
 import 'global/aplication/bloc_controller/settings_bloc.dart';
 import 'global/aplication/bloc_controller/states.dart';
 import 'global/aplication/mobx_controller.dart/todo_controller.dart';
+import 'global/presentation/auth_check.dart';
 import 'todo_list/presentation/home_page.dart';
 
 class TodoList extends StatefulWidget {
@@ -41,7 +42,6 @@ class _TodoListState extends State<TodoList> {
   @override
   void dispose() {
     super.dispose();
-
     bloc.close();
   }
 
@@ -57,7 +57,7 @@ class _TodoListState extends State<TodoList> {
             theme: state.themeMode
                 ? CustomThemeMode.darkTheme
                 : CustomThemeMode.lightTheme,
-            home: const HomePage(),
+            home: const AuthCheck(),
           );
         },
       ),

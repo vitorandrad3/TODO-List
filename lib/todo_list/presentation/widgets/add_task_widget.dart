@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../../../design_system/box_spacing/box_spacer.dart';
 import '../../../design_system/constants/constants_strings.dart';
 import '../../../global/aplication/mobx_controller.dart/todo_controller.dart';
-import 'custom_text_form_field.dart';
+import '../../../global/presentation/widgets/custom_text_form_field.dart';
 
 class AddTaskWidget extends StatefulWidget {
   const AddTaskWidget({

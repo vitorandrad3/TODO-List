@@ -11,7 +11,8 @@ class CustomSliverList extends StatelessWidget {
     super.key,
   });
 
-  ///recepção do controller via parâmetro para a utilização do widget modularizado
+  ///recepção do controller via parâmetro para a utilização do widget
+  ///modularizado
   final TodoController controller;
 
   @override

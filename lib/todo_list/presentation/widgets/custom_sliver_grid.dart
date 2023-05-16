@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../design_system/box_spacing/box_spacer.dart';
+import '../../../design_system/constants/spacing.dart';
 import '../../../global/aplication/mobx_controller.dart/todo_controller.dart';
 
 ///widget para exibir as tarefas no modo "grade", usando o
@@ -37,11 +38,16 @@ class CustomSliverGrid extends StatelessWidget {
                               controller.allTasks[index].title,
                             ),
                             const DSBoxSpacing.xLarge(),
-                            Text(
-                              controller.allTasks[index].description,
-                              style: Theme.of(context).textTheme.caption,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: DSSpacing.small,
+                              ),
+                              child: Text(
+                                controller.allTasks[index].description,
+                                style: Theme.of(context).textTheme.caption,
+                              ),
                             ),
-                            const DSBoxSpacing.xLarge(),
+                            const Spacer(),
                             Row(
                               children: [
                                 const Spacer(),
